@@ -28,3 +28,12 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     - name: Publish
       run: dotnet publish SimpleFeedReader/SimpleFeedReader.csproj -c Release -o website
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        # Artifact name
+        name: Upload a Build Artifact
+        # A file, directory or wildcard pattern that describes what to upload
+        path: actions/upload-artifact@v3
+        # The desired behavior if no files are found using the provided path.
+        if-no-files-found: error
